@@ -20,6 +20,7 @@ onClickOutside(target, () => handleClick)
 </script>
 
 <template>
+  <div class="overlay"></div>
   <div class="ba-wrapper" ref="target">
     <div class="input-wrapper">
       <label for="game-type">Choose game type:</label>
@@ -58,13 +59,9 @@ onClickOutside(target, () => handleClick)
   flex-direction: column;
   gap: 24px;
 
-  // &:after {
-  //   content: '';
-  //   position: fixed;
-  //   inset: 0 0 0 0;
-  //   z-index: 20;
-  //   background-color: rgba(0, 0, 0, 0.5);
-  // }
+  &:after {
+    content: '';
+  }
 }
 
 .input-wrapper {
@@ -75,6 +72,17 @@ onClickOutside(target, () => handleClick)
   label {
     font-weight: bold;
   }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  // transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .btn-close {
